@@ -5,6 +5,7 @@ echo "Hello, what's your name?\n";
 $name = readline(">> ");
 $name = strtolower($name);
 $letters = str_split($name);
+$new_name = "";
 
 foreach ($letters as $letter) {
     switch ($letter) {
@@ -13,9 +14,10 @@ foreach ($letters as $letter) {
         case "i":
         case "o":
         case "u":
-            echo "oob";
+            $new_name .= "oob";
             break;
         default:
-            echo "$letter";
+            $new_name .= "$letter";
     }
 }
+echo "Hello $new_name!\n";
