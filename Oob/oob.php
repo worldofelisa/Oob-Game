@@ -1,24 +1,23 @@
 <?php
 
 echo "Hello, what's your name?\n";
-
 $name = readline(">> ");
-$name = strtolower($name);
-$letters = str_split($name);
-$new_name = "";
+$vowels = ["a", "e", "i", "o", "u"];
 
-foreach ($letters as $letter) {
-    switch ($letter) {
-        case "a":
-        case "e":
-        case "i":
-        case "o":
-        case "u":
+while ($name != false) {
+    $new_name = "";
+
+    foreach (str_split(strtolower($name)) as $letter) {
+        if (in_array($letter, $vowels)) {
             $new_name .= "oob";
-            break;
-        default:
-            $new_name .= "$letter";
+        } else {
+            $new_name .= $letter;
+        }
     }
+
+    $new_name = ucfirst($new_name);
+    echo "Hello, $new_name!\n";
+    $name = readline(">> ");
 }
-$new_name= ucfirst($new_name);
-echo "Hello $new_name!\n";
+
+echo "Hoovoob oob grooboobt dooby!\n";
