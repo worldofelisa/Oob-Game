@@ -1,0 +1,9 @@
+version: 2.2.3
+
+services:
+  oob:
+    image: php:8-fpm-alpine
+    ports:
+      - 9002:9000
+    volumes:
+      - ./app:/var/www/html
