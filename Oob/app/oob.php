@@ -1,23 +1,30 @@
 <?php
 
-echo "Hello, what's your name?\n";
-$name = readline(">> ");
-$vowels = ["a", "e", "i", "o", "u"];
+Class Oobify
+{
+    /**
+     * @return string
+     */
+    public function changeText($text)
+    {
+       $vowels = ["a", "e", "i", "o", "u"];
+       $new_text = "";
 
-while ($name != false) {
-    $new_name = "";
-
-    foreach (str_split(strtolower($name)) as $letter) {
-        if (in_array($letter, $vowels)) {
-            $new_name .= "oob";
-        } else {
-            $new_name .= $letter;
+       foreach (str_split(strtolower($text)) as $letter)
+        {
+            if (in_array($letter, $vowels))
+            {
+                $new_text .= "oob";
+            } else
+            {
+                $new_text .= $letter;
+            }
         }
+        return ucfirst($new_text);
     }
-
-    $new_name = ucfirst($new_name);
-    echo "Hello, $new_name!\n";
-    $name = readline(">> ");
 }
 
-echo "Hoovoob oob grooboobt dooby!\n";
+
+$text = new Oobify();
+$input = readline(">> ");
+echo $text->changeText($input);
